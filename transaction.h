@@ -1,24 +1,23 @@
 #ifndef TRANSACTION
 #define TRANSACTION
-
 #include <QString>
 #include <QList>
 #include <QDate>
+#include "savingsaccount.h"
 
-class Transaction : public SavingsAccount {
+class Transaction {
 public:
    Transaction(QString type, QDateTime datetime);
    QString getType();
    QString toString();
    QDateTime getDateTime();
-   virtual double computeCost();
+   double computeCost();
 protected:
    QString m_Type;
    QDateTime m_DateTime;
 };
 
-Transaction::Transaction(QString type, QDateTime datetime)
-    : SavingsAccount("defaultAccount", "000") {
+Transaction::Transaction(QString type, QDateTime datetime) {
     m_Type = type;
     m_DateTime = datetime;
 }

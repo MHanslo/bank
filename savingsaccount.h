@@ -1,5 +1,6 @@
 #ifndef SAVINGSACCOUNT
 #define SAVINGSACCOUNT
+#include "transaction.h"
 
 #include <QString>
 #include <QList>
@@ -9,15 +10,15 @@ class SavingsAccount {
 public:
     SavingsAccount(QString name, QString num);
     virtual ~SavingsAccount();
-    Transaction * addTransaction();
+    void addTransaction(Transaction* t);
     double totalTransactionCost();
     QString frequentTransactionType();
-    QList<Transaction *> transactionOnAdate(QDate date);
+    QList<Transaction*> transactionOnAdate(QDate date);
     virtual QString toString();
 private:
     QString m_CustomerName;
     QString m_AccountNumber;
-    QList m_TransactionList;
+    QList<Transaction*> m_TransactionList;
 };
 
 SavingsAccount::SavingsAccount(QString name, QString num) {
@@ -25,8 +26,8 @@ SavingsAccount::SavingsAccount(QString name, QString num) {
     m_AccountNumber = num;
 }
 
-transaction* SavingsAccount::addTransaction() {
-    return new Transaction() t;
+void SavingsAccount::addTransaction(Transaction* t) {
+    m_TransactionList.append(t);
 }
 
 double SavingsAccount::totalTransactionCost() {
@@ -37,7 +38,7 @@ QString SavingsAccount::frequentTransactionType() {
 
 }
 
-QList<> SavingsAccount::transactionOnAdate(QDate date) {
+QList<Transaction *> SavingsAccount::transactionOnAdate(QDate date) {
     return m_TransactionList;
 }
 
