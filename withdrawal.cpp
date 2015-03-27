@@ -8,7 +8,7 @@ Withdrawal::Withdrawal(double amount)
 }
 
 QString Withdrawal::toString() const {
-    return QString("Amount: %1, Percentage: %2 %").arg(m_Amount).arg(m_Percentage);
+    return QString("Withdraw Amount: R%1, Cost Percentage: %2%").arg(m_Amount).arg(m_Percentage);
 }
 
 double Withdrawal::computeCost() const {

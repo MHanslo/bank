@@ -1,6 +1,12 @@
 #ifndef SAVINGSACCOUNT
 #define SAVINGSACCOUNT
-#include "transaction.h"
+#include <QString>
+#include <QTextStream>
+#include <QList>
+#include <QDate>
+#include <QDateTime>
+
+class Transaction;
 
 class SavingsAccount {
 public:

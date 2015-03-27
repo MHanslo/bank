@@ -10,7 +10,12 @@ void SavingsAccount::addTransaction(Transaction* t) {
 }
 
 double SavingsAccount::totalTransactionCost() const {
-    return 1212.21440;
+    double result = 0.0;
+    for(int i=0; i<m_TransactionList.count(); ++i) {
+        double Tcost = m_TransactionList[i]->computeCost();
+        result = result + Tcost;
+    }
+    return result;
 }
 
 QString SavingsAccount::frequentTransactionType() const {
@@ -19,15 +24,15 @@ QString SavingsAccount::frequentTransactionType() const {
 
 QList<Transaction*> SavingsAccount::transactionOnAdate(QDate date) const {
     QList<Transaction*> result;
-    for(int i=0; i<m_TransactionList.count(); ++i) {
-        QDateTime listDate = m_TransactionList[i]->getDateTime();
-        if (listDate.date() == date) {
-            result.append(m_TransactionList[i]);
-        }
-    }
+    //for(int i=0; i<m_TransactionList.count(); ++i) {
+    //    QDateTime listDate = m_TransactionList[i]->getDateTime();
+    //    if (listDate.date() == date) {
+    //        result.append(m_TransactionList[i]);
+    //    }
+    //}
     return result;
 }
 
 QString SavingsAccount::toString() const {
-    return QString("Name: %1, Num: %2").arg(m_CustomerName).arg(m_AccountNumber);
+    return QString("Name: %1, Account Number: %2").arg(m_CustomerName).arg(m_AccountNumber);
 }
