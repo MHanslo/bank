@@ -1,10 +1,13 @@
-#include <QCoreApplication>
 #include "savingsaccount.h"
 
-int main(int argc, char *argv[])
+int main()
 {
-    QCoreApplication a(argc, argv);
+    QTextStream cout(stdout);
+    QTextStream cin(stdin);
+    SavingsAccount Acc("John Doe", "999");
+
+    Acc.addTransaction();
 
 
-    return a.exec();
+    return 0;
 }

@@ -15,8 +15,16 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    savingsaccount.cpp \
+    transaction.cpp \
+    deposit.cpp \
+    withdrawal.cpp \
+    balanceenquiry.cpp
 
 HEADERS += \
     savingsaccount.h \
-    transaction.h
+    transaction.h \
+    deposit.h \
+    withdrawal.h \
+    balanceenquiry.h
