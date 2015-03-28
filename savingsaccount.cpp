@@ -19,17 +19,35 @@ double SavingsAccount::totalTransactionCost() const {
 }
 
 QString SavingsAccount::frequentTransactionType() const {
-    return QString("Frequent transaction type output");
+    int deposit = 0, withdraw = 0, balance = 0;
+    for(int i=0; i<m_TransactionList.count(); ++i) {
+       if (m_TransactionList[i]->getType() == "Deposit") {
+           deposit++;
+       } else if (m_TransactionList[i]->getType() == "Withdrawal") {
+           withdraw++;
+       } else if (m_TransactionList[i]->getType() == "Balance Enquiry") {
+           balance++;
+       }
+    }
+    if ((deposit > withdraw) && (deposit > balance)) {
+        return QString("Deposit is the most common transaction");
+    } else if ((withdraw > deposit) && (withdraw > balance)) {
+        return QString("Withdrawal is the most common transaction");
+    } else if ((balance > deposit) && (balance > withdraw)) {
+        return QString("Balance enquiry is the most common transaction");
+    } else {
+        return QString("You have equal amounts of one to three types of transactions");
+    }
 }
 
 QList<Transaction*> SavingsAccount::transactionOnAdate(QDate date) const {
     QList<Transaction*> result;
-    //for(int i=0; i<m_TransactionList.count(); ++i) {
-    //    QDateTime listDate = m_TransactionList[i]->getDateTime();
-    //    if (listDate.date() == date) {
-    //        result.append(m_TransactionList[i]);
-    //    }
-    //}
+    for(int i=0; i<m_TransactionList.count(); ++i) {
+        QDateTime listDate = m_TransactionList[i]->getDateTime();
+        if (listDate.date() == date) {
+            result.append(m_TransactionList[i]);
+        }
+    }
     return result;
 }
 

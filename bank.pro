@@ -17,14 +17,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     savingsaccount.cpp \
-    transaction.cpp \
-    deposit.cpp \
-    withdrawal.cpp \
-    balanceenquiry.cpp
+    transaction.cpp
 
 HEADERS += \
     savingsaccount.h \
-    transaction.h \
-    deposit.h \
-    withdrawal.h \
-    balanceenquiry.h
+    transaction.h

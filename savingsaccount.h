@@ -5,8 +5,8 @@
 #include <QList>
 #include <QDate>
 #include <QDateTime>
-
-class Transaction;
+#include <QDebug>
+#include "transaction.h"
 
 class SavingsAccount {
 public:
